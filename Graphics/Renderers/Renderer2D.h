@@ -15,20 +15,16 @@ class Renderer2D {
 public:
     explicit Renderer2D(glm::mat4 projection);
 
-    /// Add a point to the batch.
-    /// \param point
-    void AddPoint(glm::vec2 point);
-    void AddPoint(float x, float y);
-
+    /// Render a vertex array (not using index buffer)
+    /// With GL_TRIANGLES
+    /// \param vao
+    /// \param shader
+    static void Render(const VertexArray& vao, int count, const Shader& shader);
 
     /// Set the color of the points.
     /// \param color
     void SetColor(glm::vec4 color);
     void SetColor(float r, float g, float b, float a);
-
-
-    /// Render and flush
-    void RenderPoints();
 
 
     /// \param shader - optional shader
@@ -40,17 +36,9 @@ public:
     void DrawRect(float x, float y, float width, float height, const char* shader = nullptr);
     void DrawRect(glm::vec4 rect);
 
-
-    ///Clear the batch
-    void FlushPoints();
-
     inline glm::mat4 GetProjectionMatrix() const { return m_Projection; };
 
 private:
-    //Used for rendering points
-    bool m_Changed;
-    VertexArray m_VAO;
-    std::vector<Vertex> m_Vertices;
     glm::vec4 m_Color{};
     Shader m_Shader;
     glm::mat4 m_Projection;

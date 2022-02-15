@@ -16,15 +16,12 @@ public:
 
     void Update(float dt) override;
     void Render(Renderer2D& renderer) override;
-    void RenderMandelbrot(Renderer2D& renderer);
-private:
-    int Iterate(std::complex<float> c) const;
-    static glm::vec3 hsv2rgb(glm::vec3 hsv);
-    std::complex<float> Transform(std::complex<float> num) const;
-
 
 private:
     Application& m_App;
+    Shader m_Shader;
+    VertexArray m_VAO;
+
     Selection& m_Selection;
 
     std::stack<glm::mat4> m_MatStack;
