@@ -8,7 +8,3 @@
 
 ![Mandelbrot Set](Resources/Pictures/Mandelbrot.png)
 ![Mandelbrot Set Zommed](Resources/Pictures/Mandelbrot-zoomed.png)
-
-## Upcoming features
-- Rendering with the GPU
-- (Maybe Multithreading)
