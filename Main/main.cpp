@@ -3,7 +3,7 @@
 #include "Selection.h"
 
 int main() {
-    Application app("Mandelbrot Set", 800, 600);
+    Application app("Mandelbrot Set", 1080, 900);
 
     app.Init();
 

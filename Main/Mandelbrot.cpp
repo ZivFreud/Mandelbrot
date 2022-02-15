@@ -5,7 +5,7 @@
 #include "Mandelbrot.h"
 
 Mandelbrot::Mandelbrot(Application& app, Selection& selection) :
-m_App(app), m_Selection(selection), m_MaxIterations(100) {
+m_App(app), m_Selection(selection), m_MaxIterations(300) {
     m_Mat = glm::mat4(1.0f);
     m_Mat = glm::translate(m_Mat, glm::vec3((float)-m_App.GetWidth()/4, 0.0f, 0.0f));
     ResourceManager::LoadShader("Mandelbrot", "Mandelbrot/MandelbrotVertex.glsl", "Mandelbrot/MandelbrotFragment.glsl");
@@ -38,16 +38,16 @@ void Mandelbrot::Update(float dt) {
 
         m_Selection.UnSelect();
     }
-    if (Input::IsKeyDown(Key::B) && !m_MatStack.empty()){
+    if (Input::IsKeyReleased(Key::B) && !m_MatStack.empty()){
         m_Mat = m_MatStack.top();
         m_MatStack.pop();
     }
-    if (Input::IsKeyDown(Key::R) && !m_MatStack.empty()){
+    if (Input::IsKeyReleased(Key::R) && !m_MatStack.empty()){
         while (m_MatStack.size() > 1)
             m_MatStack.pop();
         m_Mat = m_MatStack.top();
     }
-    if (Input::IsKeyDown(Key::Q))
+    if (Input::IsKeyReleased(Key::Q))
         m_App.Terminate();
 }
 

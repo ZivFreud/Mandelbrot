@@ -16,12 +16,14 @@ public:
     static void Update();
     static bool IsKeyDown(KeyCode key);
     static bool IsKeyUp(KeyCode key);
+    static bool IsKeyReleased(KeyCode key);
 
     static glm::vec2 GetCursorPosition();
     static bool IsMouseDown();
 
 private:
     static bool s_Keys[MAX_KEY_CODE];
+    static bool s_ReleasedKeys[MAX_KEY_CODE];
     static GLFWwindow* s_Window;
 };
 
