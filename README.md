@@ -4,7 +4,7 @@
 - Reset Selection- Esc
 - Go back- B
 - Reset- R
-- Exit- q
+- Exit- Q
 
 ![Mandelbrot Set](Resources/Pictures/Mandelbrot.png)
 ![Mandelbrot Set Zommed](Resources/Pictures/Mandelbrot-zoomed.png)
